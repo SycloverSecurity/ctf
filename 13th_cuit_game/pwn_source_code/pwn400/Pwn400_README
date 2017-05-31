@@ -1,0 +1,15 @@
+400分，漏洞：UAF、HOS、IO_FILE_Plus劫持
+保护为NX、CANARY 由于题目限制不能开启PIE和RELRO
+
+Life Crowdfunding
+2017.4.30 by:Ox9A82
+
+Use-After-Free ——> Fastbin Attack
+Allocate Fastbin on the bss_name
+overwrite bss_name_ptr
+leak _IO_FILE get libc_base
+leak heap base
+600 bytes chunk UAF
+fopen alloc _IO_FILE_plus in the UAF chunk
+overwrite _IO_FILE_plus IO_jump_t
+

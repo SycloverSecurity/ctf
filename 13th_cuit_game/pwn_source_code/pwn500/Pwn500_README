@@ -1,0 +1,12 @@
+务必使用目录下的libc.so启动程序，否则系统的libc无法实现利用
+
+500分，漏洞：内存未初始化、custom unlink、main_arena overflow、fake vtable
+保护为NX、CANARY、PIE、RELRO全部开启 且题目利用不受任何保护的影响，全保护与无保护的利用代码完全相同
+
+House of lemon
+2017.5.13 by:Ox9A82
+
+1.stack leak--->leak libc
+2.unlink write-anything-anywhere
+3.alloc big--->arena overflow
+4.fake vtable
